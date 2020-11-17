@@ -6,7 +6,7 @@
     <title>Ejercicio 9</title>
 </head>
 <body>
-    <h1>Volumen de un cono</h1>
+    <h1>9.- Volumen de un cono</h1>
 
     <form action="9.php" method="POST">
         <fieldset style="display: inline-block">

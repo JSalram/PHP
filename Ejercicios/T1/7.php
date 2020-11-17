@@ -6,7 +6,7 @@
     <title>Ejercicio 7</title>
 </head>
 <body>
-    <h1>Factura</h1>
+    <h1>7.- Factura</h1>
 
     <form action="7.php" method="POST">
         <label for="precio">Precio sin IVA: </label><br>

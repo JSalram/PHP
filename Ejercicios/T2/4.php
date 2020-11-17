@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 8</title>
+    <title>Ejercicio 4</title>
 </head>
 <body>
-    <h1>8.- Salario semanal</h1>
+    <h1>4.- Salario semanal</h1>
     
-    <form action="8.php" method="POST">
+    <form action="4.php" method="POST">
         <label for="horas">Horas semanales: </label><br>
         <input type="number" name="horas" id="horas" autofocus>
         <input type="submit" value="Enviar">
@@ -18,7 +18,15 @@
 
     <?php
         $horas = $_POST["horas"];
-        $salario = $horas * 12;
+        
+        if ($horas > 40)
+        {
+            $salario = (40*12) + ($horas-40)*16;
+        }
+        else
+        {
+            $salario = $horas * 12;
+        }
 
         if ($horas != "")
         {

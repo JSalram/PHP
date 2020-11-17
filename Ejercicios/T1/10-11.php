@@ -6,7 +6,7 @@
     <title>Ejercicios 10-11</title>
 </head>
 <body>
-    <h1>Conversor Mb - Kb</h1>
+    <h1>10-11.- Conversor Mb - Kb</h1>
 
     <form action="10-11.php" method="POST">
         <fieldset style="display: inline-block;">
