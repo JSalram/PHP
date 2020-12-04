@@ -1,0 +1,39 @@
+body {
+  padding: 0 20px;
+  background-color: #F6F6FF;
+  font-family: sans-serif;
+}
+
+h1 {
+  margin: 10px;
+  font-size: 150%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+footer {
+  border-top: black 1px solid;
+  margin-top: 2em;
+  text-align: center;
+}
+
+footer cite {
+  font-weight: bold;
+}
+
+/* ============================================ */
+
+div.titulo,
+div.partida {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.titulo h2 {
+  font-size: 16px;
+  margin: 25px 20px 10px 20px;
+}
+form {
+  margin: 25px;
+  text-align: center;
+}

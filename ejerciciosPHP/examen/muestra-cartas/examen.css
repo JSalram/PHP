@@ -1,0 +1,38 @@
+
+body {
+  padding: 0 20px;
+  background-color: #F6F6FF;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+h1 {
+  margin: 15px;
+  font-size: 150%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 125%;
+}
+
+input {
+  font-size: 100%;
+}
+
+footer {
+  border-top: black 1px solid;
+  margin-top: 2em;
+  text-align: center;
+}
+
+footer cite {
+  font-weight: bold;
+}
+
+/* ==================================================== */
+
+img {
+  height: 100px;
+}
