@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Test JS AJAX</title>
+    </head>
+    <body>
+        <h1>Test AJAX (JS - SQL)</h1>
+        <button onclick="showUsers()">Click para mostrar tabla de usuarios</button>
+        <p id="demo"></p>
+
+        <button onclick="changeUser('salram')">Click para cambiar la contraseña por "holaquease"</button>
+        <p id="demo2"></p>
+
+        <button onclick="changeWatched('salram', '5')">Click para cambiar el numero de wOnePiece a 5</button>
+        <p id="demo3"></p>
+
+        <script>
+            function showUsers() {
+                let xhttp;
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.querySelector("p#demo").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "getUsers.php", true);
+                xhttp.send();
+            }
+
+            function changeUser(str) {
+                let xhttp;
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.querySelector("p#demo2").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "changeUser.php?q=" + str, true);
+                xhttp.send();
+            }
+
+            function changeWatched(str, i) {
+                let xhttp;
+                xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "changeWatched.php?user=" + str + "&w=" + i, true);
+                xhttp.send();
+            }
+        </script>
+    </body>
+</html>
