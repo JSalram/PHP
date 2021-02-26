@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Datos{% endblock %}
+
+{% block body %}
+
+    {{ dump(productos) }}
+
+    <div class="container mt-5">
+        <ul>
+            {% for p in productos %}
+                <li>
+                    {{ p.id }}: {{ p.nombre }} - {{ p.codigo }}.
+                    {% if p.categoria and p.categoria.id > 0 %}
+                        Categoria: {{ p.categoria.nombre }}.
+                    {% else %}
+                        Sin categorizar.
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <hr class="bg-dark">
+
+        <p>
+            <a href="{{ path('addProducto') }}">Añadir producto</a>
+            |
+            <a href="{{ path('busquedas') }}">Buscar producto</a>
+        </p>
+    </div>
+
+{% endblock %}

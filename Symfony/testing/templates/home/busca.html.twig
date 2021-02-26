@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Búsquedas{% endblock %}
+
+{% block body %}
+
+    <div class="my-4">
+        <h3>Buscar por id</h3>
+        {{ form(form) }}
+    </div>
+
+    {% if id > 0 %}
+        {% if producto is not null %}
+            <p>El elemento buscado es: <br> - {{ producto.id }}: {{ producto.nombre }}, {{ producto.codigo }} </p>
+        {% else %}
+            <p>El elemento buscado no coincide con ninguno de los existentes.</p>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
+
+
