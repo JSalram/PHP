@@ -6,6 +6,12 @@
 
     {{ dump(productos) }}
 
+    {% for message in app.flashes('success') %}
+        <div class="bg-success text-light p-3">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <div class="container mt-5">
         <ul>
             {% for p in productos %}
@@ -16,6 +22,7 @@
                     {% else %}
                         Sin categorizar.
                     {% endif %}
+                    <a href="{{ path('removeProducto', {'id': p.id}) }}">Eliminar</a>
                 </li>
             {% endfor %}
         </ul>

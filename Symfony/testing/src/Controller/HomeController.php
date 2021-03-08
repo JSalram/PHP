@@ -4,9 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Producto;
 use App\Form\ProductoType;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -45,7 +45,6 @@ class HomeController extends AbstractController
         ]);
     }
 
-
     /**
      * @Route("/form/addProducto/", name="addProducto")
      * @param Request $request
@@ -62,7 +61,13 @@ class HomeController extends AbstractController
             $producto = $form->getData();
             $em->persist($producto);
             $em->flush();
-            return $this->redirectToRoute("addProducto");
+
+            $this->addFlash(
+                'success',
+                'Producto añadido con éxito'
+            );
+
+            return $this->redirectToRoute("datos");
         }
 
         return $this->render("home/addProducto.html.twig", [
@@ -71,11 +76,32 @@ class HomeController extends AbstractController
     }
 
     /**
+     * @Route("/form/remove/{id}", name="removeProducto")
+     * @param Producto $producto
+     * @return Response
+     */
+//  public function removeProducto(int $id): Response
+    public function removeProducto(Producto $producto): Response
+    {
+//      $producto = $em->getRepository(Producto::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($producto);
+        $em->flush();
+
+        $this->addFlash(
+            'success',
+            'Producto eliminado correctamente'
+        );
+
+        return $this->redirectToRoute("datos");
+    }
+
+    /**
      * @Route("/buscar/", name="busquedas")
      * @param Request $request
      * @return Response
-     * @throws \Doctrine\ORM\NoResultException
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NoResultException
+     * @throws NonUniqueResultException
      */
     public function buscar(Request $request): Response
     {
