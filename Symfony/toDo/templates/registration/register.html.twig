@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <h1>Registro</h1>
+
+    {{ include('registration/_register_form.html.twig') }}
+
+{% endblock %}

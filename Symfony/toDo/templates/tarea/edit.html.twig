@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar tarea{% endblock %}
+
+{% block body %}
+    <h1>Editar tarea</h1>
+
+    {{ include('tarea/_form.html.twig', {'button_label': 'Actualizar'}) }}
+    {{ include('tarea/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Iniciar sesión / Registrarse{% endblock %}
+
+{% block body %}
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+
+    <div class="row justify-content-around">
+        <div class="col-md-6 p-3 border shadow">
+                <h1 class="h3 mb-3 text-center">Iniciar sesión</h1>
+                {{ include('registration/_login_form.html.twig') }}
+        </div>
+
+        <div class="col-md-6 p-3 border shadow">
+            <h1 class="h3 mb-3 text-center">Registro</h1>
+            {{ include('registration/_register_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

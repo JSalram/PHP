@@ -1,0 +1,22 @@
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand fs-3" href="{{ path('tarea_index') }}">
+            ToDo
+        </a>
+        <div>
+            <span class="fw-bold text-light mx-3">
+                {{ app.user ? app.user.username | capitalize }}
+            </span>
+            <a class="btn btn-secondary" href="{{ path('tarea_new') }}">
+                Nueva tarea
+            </a>
+            {% if app.user %}
+                <a class="btn btn-outline-danger" href="{{ path('app_logout') }}">Cerrar sesión</a>
+            {% else %}
+                <a class="btn btn-outline-light" href="{{ path('app_login') }}">
+                    Iniciar sesión
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

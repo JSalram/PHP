@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tarea{% endblock %}
+
+{% block body %}
+    <h1>Tarea</h1>
+
+    <table class="table table-dark table-striped">
+        <tbody>
+        <tr>
+            <th>Descripción</th>
+            <td>{{ tarea.descripcion | capitalize }}</td>
+        </tr>
+        <tr>
+            <th>Creado por</th>
+            <td>{{ tarea.usuario ? tarea.usuario : 'Invitado' }}</td>
+        </tr>
+        <tr>
+            <th>Finalizada</th>
+            <td>{{ tarea.finalizada ? 'Sí' : 'No' }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <div class="d-flex">
+        <a class="btn btn-primary me-2" href="{{ path('tarea_edit', {'id': tarea.id}) }}">Editar</a>
+        {{ include('tarea/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

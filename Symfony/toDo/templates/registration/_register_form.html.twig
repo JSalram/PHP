@@ -1,0 +1,15 @@
+{{ form_start(registrationForm) }}
+
+    <label for="{{ registrationForm.email.vars.id }}" class="form-label">Correo electrónico</label>
+    {{ form_widget(registrationForm.email) }}
+
+    <label for="{{ registrationForm.username.vars.id }}" class="form-label">Nombre de usuario</label>
+    {{ form_widget(registrationForm.username) }}
+
+    <label for="{{ registrationForm.plainPassword.vars.id }}" class="form-label">Contraseña</label>
+    {{ form_widget(registrationForm.plainPassword) }}
+
+    {{ form_widget(registrationForm.agreeTerms, {'label': 'Acepto los términos y condiciones'}) }}
+
+<button type="submit" class="btn btn-primary my-2">Enviar</button>
+{{ form_end(registrationForm) }}

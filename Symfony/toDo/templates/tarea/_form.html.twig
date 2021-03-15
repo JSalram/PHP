@@ -1,0 +1,6 @@
+{{ form_start(form) }}
+    {{ form_label(form.descripcion, 'Descripción')}}
+    {{ form_widget(form.descripcion) }}
+    {{ form_widget(form.finalizada) }}
+    <button class="my-2 btn btn-primary">{{ button_label|default('Guardar') }}</button>
+{{ form_end(form) }}
